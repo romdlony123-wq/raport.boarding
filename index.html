@@ -352,7 +352,7 @@
                 </div>
             </div>
 
-            <!-- Navigation Menu (7 Mandatory Items + Cetak Raport) -->
+            <!-- Navigation Menu (Menu Utama + Cetak Raport) -->
             <nav class="flex-1 p-3.5 space-y-1.5 overflow-y-auto custom-scrollbar">
                 <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400/80">Menu Utama
                 </div>
@@ -360,37 +360,37 @@
                 <button type="button" data-target="viewDashboard"
                     class="nav-item active w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-chart-pie w-5 text-center"></i>
-                    <span>1. Menu Dashboard</span>
+                    <span>Menu Dashboard</span>
                 </button>
 
                 <button type="button" data-target="viewSantri"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-user-graduate w-5 text-center"></i>
-                    <span>2. Input Nama Santri</span>
+                    <span>Input Nama Santri</span>
                 </button>
 
                 <button type="button" data-target="viewMapel"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-book-open w-5 text-center"></i>
-                    <span>3. Input Pelajaran Santri</span>
+                    <span>Input Pelajaran Santri</span>
                 </button>
 
                 <button type="button" data-target="viewNilai"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-award w-5 text-center"></i>
-                    <span>4. Input Nilai & Predikat</span>
+                    <span>Input Nilai & Predikat</span>
                 </button>
 
                 <button type="button" data-target="viewDeskripsi"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-file-lines w-5 text-center"></i>
-                    <span>5. Input Deskripsi Capaian</span>
+                    <span>Input Deskripsi Capaian</span>
                 </button>
 
                 <button type="button" data-target="viewCatatan"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-comments w-5 text-center"></i>
-                    <span>6. Catatan Wali Santri</span>
+                    <span>Catatan Wali Santri</span>
                 </button>
 
                 <div class="pt-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400/80">Sistem
@@ -405,7 +405,7 @@
                 <button id="navMenuAdmin" type="button" data-target="viewAdmin"
                     class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-emerald-100 hover:bg-emerald-900/70 transition">
                     <i class="fa-solid fa-gears w-5 text-center"></i>
-                    <span>7. Pengaturan Admin</span>
+                    <span>Pengaturan Admin</span>
                 </button>
             </nav>
 
@@ -432,40 +432,82 @@
 
         <!-- MAIN CONTENT AREA -->
         <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
-            <!-- Desktop Topbar -->
+            <!-- Desktop Topbar with Live Digital Clock & Calendar -->
             <div
-                class="bg-white border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-4 no-print">
-                <div>
-                    <h2 id="pageHeaderTitle" class="text-lg sm:text-xl font-extrabold text-slate-800">1. Menu Dashboard
-                    </h2>
-                    <p id="pageHeaderSubtitle" class="text-xs text-slate-500">Ringkasan perkembangan akademik, tahfidz,
-                        dan adab santri Boarding Teladan</p>
+                class="bg-white border-b border-slate-200 px-6 py-4 flex flex-col xl:flex-row xl:items-center justify-between gap-4 no-print shadow-xs">
+                <!-- Left Column: Title, Subtitle & Cloud Status Toolbar -->
+                <div class="flex flex-col gap-2 min-w-0">
+                    <div class="flex items-start sm:items-center gap-3">
+                        <div
+                            class="w-2.5 h-8 rounded-full bg-gradient-to-b from-emerald-500 to-teal-700 shrink-0 mt-0.5 sm:mt-0">
+                        </div>
+                        <div>
+                            <h2 id="pageHeaderTitle"
+                                class="text-xl sm:text-2xl font-black text-slate-800 tracking-tight leading-tight">Menu
+                                Dashboard</h2>
+                            <p id="pageHeaderSubtitle" class="text-xs text-slate-500 font-medium">Ringkasan perkembangan
+                                akademik, tahfidz, dan adab santri Boarding Teladan</p>
+                        </div>
+                    </div>
+
+                    <!-- Status Badges & Quick Action Toolbar -->
+                    <div class="flex flex-wrap items-center gap-2 pl-0 sm:pl-5 pt-0.5">
+                        <span id="envModeBadge"
+                            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5 shadow-2xs">
+                            <span id="envPulseDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span id="envModeText">Firebase Cloud Firestore Terhubung</span>
+                        </span>
+
+                        <span id="lastSyncBadge"
+                            class="hidden sm:inline-flex px-3 py-1.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200 items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-emerald-600"></i>
+                            <span id="lastSyncTimeText">Sinkron: -</span>
+                        </span>
+
+                        <button id="btnToggleAutoSync" type="button"
+                            title="Aktif/Nonaktifkan Sinkronisasi Otomatis Cloud Firestore"
+                            class="px-3 py-1.5 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100 text-emerald-800 text-xs font-semibold flex items-center gap-1.5 transition shadow-2xs">
+                            <i id="autoSyncIcon" class="fa-solid fa-bolt text-emerald-600"></i>
+                            <span id="autoSyncLabel" class="hidden md:inline">Auto-Sync: ON</span>
+                        </button>
+
+                        <button id="btnRefreshData" type="button"
+                            class="px-3.5 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition shadow-2xs">
+                            <i id="syncSpinnerIcon" class="fa-solid fa-rotate"></i>
+                            <span class="hidden sm:inline">Sinkronkan Data Cloud</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="flex flex-wrap items-center gap-2">
-                    <span id="envModeBadge"
-                        class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5">
-                        <span id="envPulseDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span id="envModeText">Firebase Cloud Firestore Terhubung</span>
-                    </span>
 
-                    <span id="lastSyncBadge"
-                        class="hidden sm:inline-flex px-3 py-1.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200 items-center gap-1.5">
-                        <i class="fa-regular fa-clock text-emerald-600"></i>
-                        <span id="lastSyncTimeText">Sinkron: -</span>
-                    </span>
+                <!-- Right Column: Live Digital Clock & Date Widget -->
+                <div class="w-full xl:w-auto flex items-center justify-center xl:justify-end shrink-0 pt-1 xl:pt-0">
+                    <div
+                        class="flex items-center gap-3.5 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white px-5 py-3 rounded-2xl shadow-md border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500/50 transition mx-auto xl:mx-0">
+                        <!-- Decorative ambient glow -->
+                        <div
+                            class="absolute -right-6 -bottom-6 w-20 h-20 bg-emerald-500/20 rounded-full blur-xl pointer-events-none">
+                        </div>
 
-                    <button id="btnToggleAutoSync" type="button"
-                        title="Aktif/Nonaktifkan Sinkronisasi Otomatis Cloud Firestore"
-                        class="px-3 py-2 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100 text-emerald-800 text-xs font-semibold flex items-center gap-1.5 transition">
-                        <i id="autoSyncIcon" class="fa-solid fa-bolt text-emerald-600"></i>
-                        <span id="autoSyncLabel" class="hidden md:inline">Auto-Sync: ON</span>
-                    </button>
+                        <!-- Clock Animated Icon Box -->
+                        <div
+                            class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center text-xl shadow-inner shadow-black/20 shrink-0">
+                            <i class="fa-regular fa-clock animate-pulse"></i>
+                        </div>
 
-                    <button id="btnRefreshData" type="button"
-                        class="px-3.5 py-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition">
-                        <i id="syncSpinnerIcon" class="fa-solid fa-rotate"></i>
-                        <span class="hidden sm:inline">Sinkronkan Data Cloud</span>
-                    </button>
+                        <!-- Time & Date -->
+                        <div class="flex flex-col justify-center select-none">
+                            <div class="flex items-baseline gap-2">
+                                <span id="liveDigitalClock"
+                                    class="font-mono tabular-nums font-black text-2xl tracking-wider text-emerald-300 drop-shadow-sm leading-none">--:--:--</span>
+                                <span
+                                    class="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-500/25 text-emerald-300 border border-emerald-400/30 uppercase tracking-wider">WIB</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-xs text-slate-300 font-medium mt-1">
+                                <i class="fa-regular fa-calendar-days text-[11px] text-emerald-400"></i>
+                                <span id="liveDigitalDateText">Memuat tanggal...</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1873,6 +1915,7 @@
 
             document.getElementById('loginView')?.classList.add('hidden');
             document.getElementById('appShell')?.classList.remove('hidden');
+            updateLiveDigitalClock();
 
             startInactivityMonitor();
 
@@ -1927,6 +1970,45 @@
         function getCurrentTimeLabel() {
             const now = new Date();
             return now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+
+        /**
+         * Mengupdate tampilan Jam Digital Real-Time dan Tanggal Lengkap
+         */
+        function updateLiveDigitalClock() {
+            const clockEl = document.getElementById('liveDigitalClock');
+            const dateEl = document.getElementById('liveDigitalDateText');
+            if (!clockEl && !dateEl) return;
+
+            const now = new Date();
+
+            // Format Jam Digital: HH:mm:ss (24 jam)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            if (clockEl) {
+                clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+
+            // Format Tanggal Indonesia: [Nama Hari], [Tanggal] [Nama Bulan] [Tahun]
+            if (dateEl) {
+                const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                const months = [
+                    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ];
+                const dayName = days[now.getDay()];
+                const dateNum = now.getDate();
+                const monthName = months[now.getMonth()];
+                const year = now.getFullYear();
+
+                dateEl.textContent = `${dayName}, ${dateNum} ${monthName} ${year}`;
+            }
+        }
+
+        function startLiveDigitalClock() {
+            updateLiveDigitalClock();
+            setInterval(updateLiveDigitalClock, 1000);
         }
 
         function setSyncIndicatorState(isSyncing, customTimeText) {
@@ -2496,14 +2578,14 @@
         }
 
         const viewTitles = {
-            viewDashboard: { title: '1. Menu Dashboard', subtitle: 'Ringkasan capaian akademik, tahfidz, predikat, dan kelengkapan raport santri' },
-            viewSantri: { title: '2. Input Nama Santri', subtitle: 'Manajemen data identitas santri, kamar asrama, musyrif, dan wali santri' },
-            viewMapel: { title: '3. Input Pelajaran Santri', subtitle: 'Manajemen kurikulum mata pelajaran boarding, KKM, dan template deskripsi' },
-            viewNilai: { title: '4. Input Nilai Santri & Predikat (A, B, C, D)', subtitle: 'Input nilai angka santri dengan kalkulasi otomatis predikat A, B, C, dan D' },
-            viewDeskripsi: { title: '5. Input Deskripsi Capaian Mata Pelajaran', subtitle: 'Pengelolaan narasi deskripsi capaian kompetensi per mata pelajaran dan santri' },
-            viewCatatan: { title: '6. Input Catatan Anak untuk Wali Santri', subtitle: 'Input evaluasi sikap spiritual, sosial, kehadiran, dan pesan khusus untuk orang tua' },
+            viewDashboard: { title: 'Menu Dashboard', subtitle: 'Ringkasan capaian akademik, tahfidz, predikat, dan kelengkapan raport santri' },
+            viewSantri: { title: 'Input Nama Santri', subtitle: 'Manajemen data identitas santri, kamar asrama, musyrif, dan wali santri' },
+            viewMapel: { title: 'Input Pelajaran Santri', subtitle: 'Manajemen kurikulum mata pelajaran boarding, KKM, dan template deskripsi' },
+            viewNilai: { title: 'Input Nilai Santri & Predikat (A, B, C, D)', subtitle: 'Input nilai angka santri dengan kalkulasi otomatis predikat A, B, C, dan D' },
+            viewDeskripsi: { title: 'Input Deskripsi Capaian Mata Pelajaran', subtitle: 'Pengelolaan narasi deskripsi capaian kompetensi per mata pelajaran dan santri' },
+            viewCatatan: { title: 'Input Catatan Anak untuk Wali Santri', subtitle: 'Input evaluasi sikap spiritual, sosial, kehadiran, dan pesan khusus untuk orang tua' },
             viewCetakRaport: { title: 'Preview & Cetak Lembar Raport Boarding', subtitle: 'Tampilan resmi lembar Raport Boarding Teladan siap cetak atau simpan ke PDF' },
-            viewAdmin: { title: '7. Menu Pengaturan Admin', subtitle: 'Pengaturan identitas pesantren, rentang predikat, akun pengguna, dan database' }
+            viewAdmin: { title: 'Menu Pengaturan Admin', subtitle: 'Pengaturan identitas pesantren, rentang predikat, akun pengguna, dan database' }
         };
 
         function switchView(targetId) {
@@ -3290,6 +3372,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Aktifkan Jam Digital & Kalender Real-Time
+            startLiveDigitalClock();
+
             // Coba pulihkan sesi login sebelumnya (jika direfresh dan inaktivitas < 10 menit)
             const isSessionRestored = restoreSessionOnLoad();
 
